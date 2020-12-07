@@ -58,3 +58,14 @@ MesTestsUnitaires.prototype.testsGetString = function () {
   assertTrue('Test bouton radio Femme',
           'femme' === getString('#sexe input[type="radio"]:checked'));
 };
+
+MesTestsUnitaires.prototype.testsGestionAlcool = function () {
+  /*:DOC +=  
+   <input type="number" id="num_verre" value="1">
+   <input type="number" id="num_poids" value="100">
+   */
+  assertTrue('Test poids 100 Kg', 100 === getInt('#num_poids'));
+  assertTrue('Test 1 verre', 1 === getInt('#num_verre'));
+  window.document.querySelector('#num_verre').value = 'texte';
+  assertTrue('Test erreur saisie verre', 0 === getInt('#num_verre'));
+};
